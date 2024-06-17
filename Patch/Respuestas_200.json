@@ -57,7 +57,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"status\": \"{{status}}\",\r\n  \"account\": {\r\n    \"accountType\": \"ORDINARY_DEPOSIT\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"status\": {{status}},\r\n  \"account\": {\r\n    \"accountType\": \"ORDINARY_DEPOSIT\",\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
