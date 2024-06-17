@@ -65,11 +65,18 @@
 					}
 				},
 				"url": {
-					"raw": "{{{{base-url}}}}/fd/entities/2/keys/fac43d42-4eeb-4d2c-9cad-572de1e2f2e6",
+					"raw": "https://directoriofederado.crt.transfiya.com.co/ext/transfiya/fd/entities/2/keys/fac43d42-4eeb-4d2c-9cad-572de1e2f2e6",
+					"protocol": "https",
 					"host": [
-						"{{{{base-url}}}}"
+						"directoriofederado",
+						"crt",
+						"transfiya",
+						"com",
+						"co"
 					],
 					"path": [
+						"ext",
+						"transfiya",
 						"fd",
 						"entities",
 						"2",
