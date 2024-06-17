@@ -1,4 +1,4 @@
-﻿status,accountNumber,signer,Comentario
+﻿status,accountNumber,signer,comentario
 """ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""",Caso de exito del proceso
 """""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""",Validar campo status al enviarlo vacio
 null,"""{{$randomBankAccount}}""","""{{$randomBankAccount}}""",Validar campo status al enviarlo null

@@ -1,7 +1,7 @@
-﻿status,accountType,accountNumber,signer,EntityId,Keyid,Comentario
+﻿status,accountType,accountNumber,signer,EntityId,Keyid,comentario
 """dfsdfd""","""ORDINARY_DEPOSIT""","""53612622""",0SGL3o8pzxq_Lqa,2,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo status al enviar un valor no permitido en el array
-"""ACTIVE""","""""","""53612622""",0SGL3o8pzxq_Lqa,2,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo accountType al enviarlo vacio
-"""ACTIVE""",null,"""53612622""",0SGL3o8pzxq_Lqa,2,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo accountType al enviarlo null
+"""ACTIVE""","""""","""53612622""","""0SGL3o8pzxq_Lqa""",2,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo accountType al enviarlo vacio
+"""ACTIVE""",null,"""53612622""","""0SGL3o8pzxq_Lqa,2""",fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo accountType al enviarlo null
 """ACTIVE""","""Para pruebas""","""53612622""",0SGL3o8pzxq_Lqa,2,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo accountType al enviar un valor no permitido en el array
 """ACTIVE""","""ORDINARY_DEPOSIT""","""""",0SGL3o8pzxq_Lqa,2,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo accountNumber al enviarlo vacio
 """ACTIVE""","""ORDINARY_DEPOSIT""",null,0SGL3o8pzxq_Lqa,2,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo accountNumber al enviarlo null
