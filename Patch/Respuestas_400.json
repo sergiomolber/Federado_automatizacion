@@ -28,8 +28,6 @@
 							"pm.test(\"Status code is 400\", function () {\r",
 							"    pm.response.to.have.status(400);\r",
 							"});\r",
-							"// Imprimir el comentario en la consola de Newman\r",
-							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));\r",
 							"// captura la variable code es igual a 1013\r",
 							"const responseJson = pm.response.json();\r",
 							"const code = responseJson.errors[0].code;\r",
@@ -38,7 +36,10 @@
 							"\r",
 							"pm.test(\"La variable de entorno 'code' es 1013\", function () {\r",
 							"  pm.expect(codenum).to.equal(1013); // Verifica si la variable es igual a 400\r",
-							"});"
+							"});\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
