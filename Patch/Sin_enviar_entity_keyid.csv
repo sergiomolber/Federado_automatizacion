@@ -1,7 +1,0 @@
-status,accountType,accountNumber,signer,EntityId,Keyid,comentario
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""",null,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo entityId al enviarlo null
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""",5,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo entityId al enviar un valor no existente
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""",,fac43d42-4eeb-4d2c-9cad-572de1e2f2e6,Validar campo entityId al no enviarlo
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""",2,fdsfdsfsadfsda,Validar campo keyId al enviar un valor no existente
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""",2,null,Validar campo keyId al enviarlo null
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""",2,,Validar campo keyId al no enviarlo
