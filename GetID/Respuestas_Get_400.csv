@@ -1,5 +1,4 @@
 entityId,keyId,comentario
-2,f6619c21-cc25-4dc1-9548-71a8d35b2f5d,Caso de exito del proceso
 2,f6619c21-cc25-4dc1-9548-71a8d35b2f5d,Validar campo entityId al no enviarlo
 ,f6619c21-cc25-4dc1-9548-71a8d35b2f5d,Validar campo entityId al enviarlo vacio
 null,f6619c21-cc25-4dc1-9548-71a8d35b2f5d,Validar campo entityId al enviarlo null
