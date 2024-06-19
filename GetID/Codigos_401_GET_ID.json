@@ -1,13 +1,14 @@
 {
 	"info": {
-		"_postman_id": "6336815e-1944-4bbd-add2-2ae6a8c05db0",
+		"_postman_id": "b88a9dca-a98c-496b-8f31-5be3e0bb14f8",
 		"name": "Codigos 401",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34404218"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-b88a9dca-a98c-496b-8f31-5be3e0bb14f8?source=collection_link"
 	},
 	"item": [
 		{
-			"name": "Consultar Llave id",
+			"name": "Consultar Llave id codigos 401",
 			"event": [
 				{
 					"listen": "test",

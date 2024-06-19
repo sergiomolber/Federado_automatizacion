@@ -1,13 +1,14 @@
 {
 	"info": {
-		"_postman_id": "8aa20eb4-3fa1-4c29-9f57-2eaf63eee4c0",
+		"_postman_id": "990145a5-0289-44b0-96bb-9c51dacfc728",
 		"name": "Codigos 400 GET ID",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34404218"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-990145a5-0289-44b0-96bb-9c51dacfc728?source=collection_link"
 	},
 	"item": [
 		{
-			"name": "Consultar Llave id Copy",
+			"name": "Consultar Llave codigos 400",
 			"event": [
 				{
 					"listen": "test",
