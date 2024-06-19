@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "3b53dbf4-e63a-4a43-9e12-1726e4eafd20",
+		"_postman_id": "da76ed98-4a2a-483d-a9db-56986e45b677",
 		"name": "Patch codigo 200",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado~172c1f94-a2d8-47f0-9512-d97ca65ff9d4/collection/29460625-3b53dbf4-e63a-4a43-9e12-1726e4eafd20?source=collection_link"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-da76ed98-4a2a-483d-a9db-56986e45b677?source=collection_link"
 	},
 	"item": [
 		{
@@ -36,7 +36,22 @@
 							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
 							"\r",
 							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);"
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Array de posibles valores para accountType\r",
+							"const accountTypes = [\r",
+							"    \"SAVING_ACCOUNT\",\r",
+							"    \"CURRENT_ACCOUNT\",\r",
+							"    \"LOW_DEPOSIT\",\r",
+							"    \"ORDINARY_DEPOSIT\",\r",
+							"    \"INCLUSIVE_LOW_AMOUNT\"\r",
+							"];\r",
+							"\r",
+							"// Seleccionar un valor aleatorio del array\r",
+							"const randomAccountType = accountTypes[Math.floor(Math.random() * accountTypes.length)];\r",
+							"\r",
+							"// Establecer la variable en el entorno de Postman\r",
+							"pm.environment.set(\"accountType\", randomAccountType);"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -57,7 +72,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"status\": {{status}},\r\n  \"account\": {\r\n    \"accountType\": \"ORDINARY_DEPOSIT\",\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
+					"raw": "{\r\n  \"status\": {{status}},\r\n  \"account\": {\r\n    \"accountType\":\"{{accountType}}\",\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -65,23 +80,16 @@
 					}
 				},
 				"url": {
-					"raw": "https://directoriofederado.crt.transfiya.com.co/ext/transfiya/fd/entities/2/keys/fac43d42-4eeb-4d2c-9cad-572de1e2f2e6",
-					"protocol": "https",
+					"raw": "{{base-url}}/fd/entities/2/keys/{{id}}",
 					"host": [
-						"directoriofederado",
-						"crt",
-						"transfiya",
-						"com",
-						"co"
+						"{{base-url}}"
 					],
 					"path": [
-						"ext",
-						"transfiya",
 						"fd",
 						"entities",
 						"2",
 						"keys",
-						"fac43d42-4eeb-4d2c-9cad-572de1e2f2e6"
+						"{{id}}"
 					]
 				}
 			},

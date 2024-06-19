@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "0cffab0d-36f7-49b8-9203-489ec7052bcb",
-		"name": "Patch codigo 400",
+		"_postman_id": "cd6d6fdb-b396-4cc0-b8c2-9ef921c35a6d",
+		"name": "Patch codigo 400-1018",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado~172c1f94-a2d8-47f0-9512-d97ca65ff9d4/collection/29460625-0cffab0d-36f7-49b8-9203-489ec7052bcb?source=collection_link"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-cd6d6fdb-b396-4cc0-b8c2-9ef921c35a6d?source=collection_link"
 	},
 	"item": [
 		{
-			"name": "Actualizar Llave Codigos 400",
+			"name": "Actualizar Llave Codigos 400-1018",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -68,23 +68,16 @@
 					}
 				},
 				"url": {
-					"raw": "https://directoriofederado.crt.transfiya.com.co/ext/transfiya/fd/entities/{{EntityId}}/keys/{{Keyid}}",
-					"protocol": "https",
+					"raw": "{{base-url}}{/fd/entities/2/keys/{{id}}",
 					"host": [
-						"directoriofederado",
-						"crt",
-						"transfiya",
-						"com",
-						"co"
+						"{{base-url}}{"
 					],
 					"path": [
-						"ext",
-						"transfiya",
 						"fd",
 						"entities",
-						"{{EntityId}}",
+						"2",
 						"keys",
-						"{{Keyid}}"
+						"{{id}}"
 					]
 				}
 			},

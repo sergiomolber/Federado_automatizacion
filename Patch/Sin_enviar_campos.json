@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "47585283-4f9d-4616-9716-16be6c716fd4",
+		"_postman_id": "f471d87c-b5af-4e33-b8d5-5e0eff88284b",
 		"name": "Patch codigo Sin enviar campos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado~172c1f94-a2d8-47f0-9512-d97ca65ff9d4/collection/29460625-47585283-4f9d-4616-9716-16be6c716fd4?source=collection_link"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-f471d87c-b5af-4e33-b8d5-5e0eff88284b?source=collection_link"
 	},
 	"item": [
 		{
@@ -59,18 +59,11 @@
 					}
 				},
 				"url": {
-					"raw": "https://directoriofederado.crt.transfiya.com.co/ext/transfiya/fd/entities/{{EntityId}}/keys/{{Keyid}}",
-					"protocol": "https",
+					"raw": "{{base-url}}/fd/entities/{{EntityId}}/keys/{{Keyid}}",
 					"host": [
-						"directoriofederado",
-						"crt",
-						"transfiya",
-						"com",
-						"co"
+						"{{base-url}}"
 					],
 					"path": [
-						"ext",
-						"transfiya",
 						"fd",
 						"entities",
 						"{{EntityId}}",
@@ -133,18 +126,11 @@
 					}
 				},
 				"url": {
-					"raw": "https://directoriofederado.crt.transfiya.com.co/ext/transfiya/fd/entities/{{EntityId}}/keys/{{Keyid}}",
-					"protocol": "https",
+					"raw": "{{base-url}}/fd/entities/{{EntityId}}/keys/{{Keyid}}",
 					"host": [
-						"directoriofederado",
-						"crt",
-						"transfiya",
-						"com",
-						"co"
+						"{{base-url}}"
 					],
 					"path": [
-						"ext",
-						"transfiya",
 						"fd",
 						"entities",
 						"{{EntityId}}",
@@ -190,7 +176,18 @@
 							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
 							"\r",
 							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);"
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Definimos los valores posibles para accountType\r",
+							"const accountTypes = [\"SAVING_ACCOUNT\", \"CURRENT_ACCOUNT\", \"LOW_DEPOSIT\", \"ORDINARY_DEPOSIT\", \"INCLUSIVE_LOW_AMOUNT\"];\r",
+							"\r",
+							"// Seleccionamos un valor aleatorio del arreglo\r",
+							"const randomIndex = Math.floor(Math.random() * accountTypes.length);\r",
+							"const randomAccountType = accountTypes[randomIndex];\r",
+							"\r",
+							"// Asignamos el valor aleatorio a la variable 'accountType'\r",
+							"pm.variables.set(\"accountType\", randomAccountType);\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -319,7 +316,18 @@
 							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
 							"\r",
 							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);"
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Definimos los valores posibles para accountType\r",
+							"const accountTypes = [\"SAVING_ACCOUNT\", \"CURRENT_ACCOUNT\", \"LOW_DEPOSIT\", \"ORDINARY_DEPOSIT\", \"INCLUSIVE_LOW_AMOUNT\"];\r",
+							"\r",
+							"// Seleccionamos un valor aleatorio del arreglo\r",
+							"const randomIndex = Math.floor(Math.random() * accountTypes.length);\r",
+							"const randomAccountType = accountTypes[randomIndex];\r",
+							"\r",
+							"// Asignamos el valor aleatorio a la variable 'accountType'\r",
+							"pm.variables.set(\"accountType\", randomAccountType);\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -389,7 +397,17 @@
 							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
 							"\r",
 							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);"
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Definimos los valores posibles para accountType\r",
+							"const accountTypes = [\"SAVING_ACCOUNT\", \"CURRENT_ACCOUNT\", \"LOW_DEPOSIT\", \"ORDINARY_DEPOSIT\", \"INCLUSIVE_LOW_AMOUNT\"];\r",
+							"\r",
+							"// Seleccionamos un valor aleatorio del arreglo\r",
+							"const randomIndex = Math.floor(Math.random() * accountTypes.length);\r",
+							"const randomAccountType = accountTypes[randomIndex];\r",
+							"\r",
+							"// Asignamos el valor aleatorio a la variable 'accountType'\r",
+							"pm.variables.set(\"accountType\", randomAccountType);"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -399,9 +417,13 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
-							"});"
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -422,7 +444,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"status\": \"{{randomStatus}}\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"status\": \"{{randomStatus}}\",\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -538,7 +560,20 @@
 							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
 							"\r",
 							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);"
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Definimos los valores posibles para accountType\r",
+							"const accountTypes = [\"SAVING_ACCOUNT\", \"CURRENT_ACCOUNT\", \"LOW_DEPOSIT\", \"ORDINARY_DEPOSIT\", \"INCLUSIVE_LOW_AMOUNT\"];\r",
+							"\r",
+							"// Seleccionamos un valor aleatorio del arreglo\r",
+							"const randomIndex = Math.floor(Math.random() * accountTypes.length);\r",
+							"const randomAccountType = accountTypes[randomIndex];\r",
+							"\r",
+							"// Asignamos el valor aleatorio a la variable 'accountType'\r",
+							"pm.variables.set(\"accountType\", randomAccountType);"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -609,7 +644,17 @@
 							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
 							"\r",
 							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);"
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Definimos los valores posibles para accountType\r",
+							"const accountTypes = [\"SAVING_ACCOUNT\", \"CURRENT_ACCOUNT\", \"LOW_DEPOSIT\", \"ORDINARY_DEPOSIT\", \"INCLUSIVE_LOW_AMOUNT\"];\r",
+							"\r",
+							"// Seleccionamos un valor aleatorio del arreglo\r",
+							"const randomIndex = Math.floor(Math.random() * accountTypes.length);\r",
+							"const randomAccountType = accountTypes[randomIndex];\r",
+							"\r",
+							"// Asignamos el valor aleatorio a la variable 'accountType'\r",
+							"pm.variables.set(\"accountType\", randomAccountType);"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -673,6 +718,10 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber )\r",
+							"\r",
+							"\r",
 							"// Genera un valor aleatorio entre 0 y 1\r",
 							"let randomValue = Math.random();\r",
 							"\r",
@@ -680,7 +729,18 @@
 							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
 							"\r",
 							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);"
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Definimos los valores posibles para accountType\r",
+							"const accountTypes = [\"SAVING_ACCOUNT\", \"CURRENT_ACCOUNT\", \"LOW_DEPOSIT\", \"ORDINARY_DEPOSIT\", \"INCLUSIVE_LOW_AMOUNT\"];\r",
+							"\r",
+							"// Seleccionamos un valor aleatorio del arreglo\r",
+							"const randomIndex = Math.floor(Math.random() * accountTypes.length);\r",
+							"const randomAccountType = accountTypes[randomIndex];\r",
+							"\r",
+							"// Asignamos el valor aleatorio a la variable 'accountType'\r",
+							"pm.variables.set(\"accountType\", randomAccountType);\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -753,6 +813,10 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber )\r",
+							"\r",
+							"\r",
 							"// Genera un valor aleatorio entre 0 y 1\r",
 							"let randomValue = Math.random();\r",
 							"\r",
@@ -760,7 +824,18 @@
 							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
 							"\r",
 							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);"
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Definimos los valores posibles para accountType\r",
+							"const accountTypes = [\"SAVING_ACCOUNT\", \"CURRENT_ACCOUNT\", \"LOW_DEPOSIT\", \"ORDINARY_DEPOSIT\", \"INCLUSIVE_LOW_AMOUNT\"];\r",
+							"\r",
+							"// Seleccionamos un valor aleatorio del arreglo\r",
+							"const randomIndex = Math.floor(Math.random() * accountTypes.length);\r",
+							"const randomAccountType = accountTypes[randomIndex];\r",
+							"\r",
+							"// Asignamos el valor aleatorio a la variable 'accountType'\r",
+							"pm.variables.set(\"accountType\", randomAccountType);\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -840,7 +915,8 @@
 							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
 							"\r",
 							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);"
+							"pm.environment.set(\"randomStatus\", status);\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -873,7 +949,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"status\": \"{{randomStatus}}\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -999,8 +1075,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
 							"});\r",
 							"// Verifica si la variable es igual a 1031\r",
 							"const responseJson = pm.response.json();\r",
@@ -1008,8 +1084,8 @@
 							"const codenum = Number(code);\r",
 							"pm.environment.set(\"codenum\", codenum);\r",
 							"\r",
-							"pm.test(\"La variable de entorno 'code' es 1031\", function () {\r",
-							"  pm.expect(codenum).to.equal(1031); \r",
+							"pm.test(\"La variable de entorno 'code' es 1013\", function () {\r",
+							"  pm.expect(codenum).to.equal(1013); \r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -1031,7 +1107,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"status\": \"{{randomStatus}}\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signerRERE}}\"\r\n  }\r\n}",
+					"raw": "{\r\n \"status\": \"LOCK\",\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signerRERE}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1039,16 +1115,16 @@
 					}
 				},
 				"url": {
-					"raw": "{{base-url}}/fd/entities/3/keys/{{id}}",
+					"raw": "{{base-url}}/fd/entities/2/keys/cbf072ab-ab97-4d98-ae39-d304dd0129b0",
 					"host": [
 						"{{base-url}}"
 					],
 					"path": [
 						"fd",
 						"entities",
-						"3",
+						"2",
 						"keys",
-						"{{id}}"
+						"cbf072ab-ab97-4d98-ae39-d304dd0129b0"
 					]
 				}
 			},
