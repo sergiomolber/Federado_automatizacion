@@ -30,7 +30,7 @@
 							"    pm.expect(\r",
 							"        (statusCode === 400 || statusCode === 404) || codenum === 1031\r",
 							"    ).to.be.true;\r",
-							"\r",
+							"});\r",
 							"\r",
 							"// Imprimir el comentario en la consola de Newman\r",
 							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
