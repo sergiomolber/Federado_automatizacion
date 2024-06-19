@@ -956,7 +956,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"status\": \"{{randomStatus}}\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -964,7 +964,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{base-url}}/fd/entities/2/keys/{{id}}",
+					"raw": "{{base-url}}/fd/entities/2/keys/68bd2d29-261b-4657-aca8-53aa6aaa3b5a",
 					"host": [
 						"{{base-url}}"
 					],
@@ -973,7 +973,7 @@
 						"entities",
 						"2",
 						"keys",
-						"{{id}}"
+						"68bd2d29-261b-4657-aca8-53aa6aaa3b5a"
 					]
 				}
 			},
@@ -1012,8 +1012,8 @@
 							"const codenum = Number(code);\r",
 							"pm.environment.set(\"codenum\", codenum);\r",
 							"\r",
-							"pm.test(\"La variable de entorno 'code' es 1033\", function () {\r",
-							"  pm.expect(codenum).to.equal(1033); \r",
+							"pm.test(\"La variable de entorno 'code' es 1013\", function () {\r",
+							"  pm.expect(codenum).to.equal(1013); \r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -1035,7 +1035,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"status\": \"{{randomStatus}}\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signerRERE}}\"\r\n  }\r\n}",
+					"raw": "{\r\n \"status\": \"ACTIVE\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signerRERE}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1043,7 +1043,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{base-url}}/fd/entities/2/keys/{{id}}",
+					"raw": "{{base-url}}/fd/entities/2/keys/6f0f6885-058b-4796-9f85-cea4fcb262d2",
 					"host": [
 						"{{base-url}}"
 					],
@@ -1052,7 +1052,7 @@
 						"entities",
 						"2",
 						"keys",
-						"{{id}}"
+						"6f0f6885-058b-4796-9f85-cea4fcb262d2"
 					]
 				}
 			},
