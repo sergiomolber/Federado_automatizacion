@@ -956,7 +956,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"gVEIH5104a7opfG\"\r\n  }\r\n}",
+					"raw": "{\r\n  \r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n            \"accountNumber\": \"62158017\",\r\n            \"signer\": \"gVEIH5104a7opfG\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1035,7 +1035,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"status\": \"ACTIVE\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"3232323232423432\"\r\n  }\r\n}",
+					"raw": "{\r\n \"status\": \"ACTIVE\",\r\n  \"account\": {\r\n    \"accountType\": \"ORDINARY_DEPOSIT\",\r\n            \"accountNumber\": \"7550773932\",\r\n            \"signer\": \"323232\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
