@@ -1,0 +1,2318 @@
+{
+	"info": {
+		"_postman_id": "3876a462-28c7-40f9-b195-60d70357cbcd",
+		"name": "Codigo (no enviado) Post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34404218"
+	},
+	"item": [
+		{
+			"name": "Validar campo clientId al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}",
+						"disabled": true
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo clientSecret al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityId al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities//keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityId al enviarlo vacio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities//keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityId al enviarlo null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/null/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"null",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityId al enviar un valor no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/jngtjinaviatqnuinav/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"jngtjinaviatqnuinav",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo firstName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo firstName al no enviarlo si el userType es \"PN\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo secondName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n   \r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo firstLastName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo firstLastName al no enviarlo si el userType es \"PN\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo secondLastName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo documentType al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n \r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo documentNumber al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo userType al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo merchantName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\"\r\n\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo merchantName al no enviarlo si el userType es \"PJ\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\"\r\n\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo accountType al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo accountNumber al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityCode al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo Signer al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\"\r\n\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo keyType al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo keyValue al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\"\r\n\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar cambio del formato Json a Txt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"let responseData = pm.response.json();\r",
+							"pm.test(\"Status code is 415\", function () {\r",
+							"    pm.response.to.have.status(415);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$randomPassword}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campos de salida presentados en el status 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n \r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campos de salida presentados en el status 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}1"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n \r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campos de salida presentados en el status 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities//keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campos de salida presentados en el status 500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"let responseData = pm.response.json();\r",
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$randomPassword}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "https://directoriofederado.crt.transfiya.com.co/ext/transfiya",
+			"type": "string"
+		},
+		{
+			"key": "client-id",
+			"value": "73cd505c2a470195b66dd32323bd5a96"
+		},
+		{
+			"key": "client-secret",
+			"value": "3aaef6b22a2e6c3c02e361d60db39aa0"
+		}
+	]
+}

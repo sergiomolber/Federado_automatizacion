@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "c65fdc50-73cb-4f12-b3bb-0da3a56ebcea",
+		"name": "Codigo 201 Federado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34404218"
+	},
+	"item": [
+		{
+			"name": "Crear Llave 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": {{firstName}},\r\n    \"secondName\": {{secondName}},\r\n    \"firstLastName\": {{firstLastName}},\r\n    \"secondLastName\": {{secondLastName}},\r\n    \"documentType\": {{documentType}},\r\n    \"documentNumber\": {{documentNumber}},\r\n    \"userType\": {{userType}},\r\n    \"merchantName\": {{merchantName}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\": {{accountType}},\r\n    \"accountNumber\": {{accountNumber}},\r\n    \"entityCode\": {{entityCode}},\r\n    \"signer\":{{signer}}\r\n  },\r\n  \"key\": {\r\n    \"keyType\": {{keyType}},\r\n    \"keyValue\": {{keyValue}}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "https://directoriofederado.crt.transfiya.com.co/ext/transfiya",
+			"type": "string"
+		},
+		{
+			"key": "client-id",
+			"value": "73cd505c2a470195b66dd32323bd5a96"
+		},
+		{
+			"key": "client-secret",
+			"value": "3aaef6b22a2e6c3c02e361d60db39aa0"
+		}
+	]
+}
