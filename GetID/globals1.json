@@ -1,0 +1,27 @@
+{
+	"id": "2762ccf8-e648-4220-8d92-ce7129e65542",
+	"values": [
+		{
+			"key": "base-url",
+			"value": "https://directoriofederado.crt.transfiya.com.co/ext/transfiya",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "client-id",
+			"value": "73cd505c2a470195b66dd32323bd5a96",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "client-secret",
+			"value": "3aaef6b22a2e6c3c02e361d60db39aa0",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2024-06-19T00:31:53.094Z",
+	"_postman_exported_using": "Postman/11.2.0"
+}
