@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "769b9cc7-7208-4355-bff9-b2d1f1d95310",
+		"_postman_id": "1c8a3940-fdce-46fb-a17d-5b8b7da55f11",
 		"name": "Patch codigo Sin enviar campos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-769b9cc7-7208-4355-bff9-b2d1f1d95310?source=collection_link"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-1c8a3940-fdce-46fb-a17d-5b8b7da55f11?source=collection_link"
 	},
 	"item": [
 		{
@@ -956,7 +956,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"gVEIH5104a7opfG\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1035,7 +1035,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"status\": \"ACTIVE\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signerRERE}}\"\r\n  }\r\n}",
+					"raw": "{\r\n \"status\": \"ACTIVE\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"3232323232423432\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
