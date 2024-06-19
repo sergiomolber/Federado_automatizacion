@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "8aa20eb4-3fa1-4c29-9f57-2eaf63eee4c0",
+		"name": "Codigos 400 GET ID",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34404218"
+	},
+	"item": [
+		{
+			"name": "Consultar Llave id Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Captura la respuesta JSON\r",
+							"const responseJson = pm.response.json();\r",
+							" \r",
+							"// Captura el código de error del JSON de la respuesta\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							" \r",
+							"// Verifica si la variable es igual a 1018\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018);\r",
+							"});\r",
+							" \r",
+							"// Verifica si el código de respuesta es 400\r",
+							"pm.test(\"Código de respuesta es 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							" \r",
+							"// Verifica si el código de respuesta es 404\r",
+							"pm.test(\"Código de respuesta es 404\", function () {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							" \r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					}
+				],
+				"url": {
+					"raw": "https://directoriofederado.crt.transfiya.com.co/ext/transfiya/fd/entities/{{entityId}}/keys/{{keyId}}",
+					"protocol": "https",
+					"host": [
+						"directoriofederado",
+						"crt",
+						"transfiya",
+						"com",
+						"co"
+					],
+					"path": [
+						"ext",
+						"transfiya",
+						"fd",
+						"entities",
+						"{{entityId}}",
+						"keys",
+						"{{keyId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
