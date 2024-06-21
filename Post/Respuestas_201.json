@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "c65fdc50-73cb-4f12-b3bb-0da3a56ebcea",
+		"_postman_id": "073468ff-1be8-4636-b488-7b7cd4266087",
 		"name": "Codigo 201 Federado",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34404218"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-073468ff-1be8-4636-b488-7b7cd4266087?source=collection_link"
 	},
 	"item": [
 		{
