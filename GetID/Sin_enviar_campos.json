@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "990145a5-0289-44b0-96bb-9c51dacfc728",
+		"_postman_id": "6db57684-dcda-4151-995e-67f67267e36d",
 		"name": "Codigos 400 GET ID",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-990145a5-0289-44b0-96bb-9c51dacfc728?source=collection_link"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/federado-automatizado~807d004f-834d-4321-8e8c-b996ae6059d7/collection/29460625-6db57684-dcda-4151-995e-67f67267e36d?source=collection_link"
 	},
 	"item": [
 		{
@@ -357,10 +357,18 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
+							"pm.test(\"Status code is 502\", function () {\r",
+							"    pm.response.to.have.status(502);\r",
 							"});\r",
-							""
+							"// Verifica si la variable es igual a 1013\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1005\", function () {\r",
+							"  pm.expect(codenum).to.equal(1005); \r",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -492,10 +500,18 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
+							"pm.test(\"Status code is 502\", function () {\r",
+							"    pm.response.to.have.status(502);\r",
 							"});\r",
-							""
+							"// Verifica si la variable es igual a 1013\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1005\", function () {\r",
+							"  pm.expect(codenum).to.equal(1005); \r",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
